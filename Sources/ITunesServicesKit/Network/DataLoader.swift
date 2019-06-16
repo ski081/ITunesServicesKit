@@ -8,8 +8,12 @@
 import Foundation
 
 class DataLoader {
-    let urlSession = URLSession(configuration: .default)
+    let urlSession: URLSession
     var dataTask: URLSessionDataTask?
+    
+    init(urlSession: URLSession = URLSession(configuration: .default)) {
+        self.urlSession = urlSession
+    }
     
     func request(_ endpoint: EndPoint,
                  completion: @escaping (Result<Data, NetworkError>) -> Void) {

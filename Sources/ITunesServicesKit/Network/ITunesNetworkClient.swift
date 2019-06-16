@@ -7,11 +7,21 @@
 
 import Foundation
 
-class ITunesNetworkClient {
-    let dataLoader = DataLoader()
+/// Wrapper for all requests
+public class ITunesNetworkClient {
+    let dataLoader: DataLoader
+    let urlSession: URLSession
     
-    func search(for searchTerm: String,
-                completion: @escaping (Result<SearchResponse, NetworkError>) -> Void) {
+    public init(urlSession: URLSession = URLSession(configuration: .default)) {
+        self.urlSession = urlSession
+        self.dataLoader = DataLoader(urlSession: urlSession)
+    }
+    
+    /// Performs a search for software entries
+    /// - Parameter searchTerm: search term
+    /// - Parameter completion: block to fire on completion
+    public func search(for searchTerm: String,
+                       completion: @escaping (Result<SearchResponse, NetworkError>) -> Void) {
         let endpoint = EndPoint.search(for: searchTerm)
         dataLoader.request(endpoint) { result in
             switch result {

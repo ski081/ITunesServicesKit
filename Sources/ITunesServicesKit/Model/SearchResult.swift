@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct SearchResult: Decodable {
-    let trackName: String?
-    let artistName: String?
+public struct SearchResult: Decodable {
+    public let trackName: String?
+    public let artistName: String?
     private let artworkURL100: URL?
 }
 

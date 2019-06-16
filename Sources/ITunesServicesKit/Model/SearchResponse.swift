@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct SearchResponse: Decodable {
-    let results: [SearchResult]
+public struct SearchResponse: Decodable {
+    public let results: [SearchResult]
 }

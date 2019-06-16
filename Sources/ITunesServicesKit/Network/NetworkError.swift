@@ -7,7 +7,8 @@
 
 import Foundation
 
-enum NetworkError: Error {
+/// Network related error
+public enum NetworkError: Error {
     case invalidURL
     case urlRequestFailed(message: String)
     case invalidResponse
