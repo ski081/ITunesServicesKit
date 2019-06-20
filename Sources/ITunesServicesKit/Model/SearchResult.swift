@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
 
 public struct SearchResult: Decodable {
+    public let id: Int
     public let trackName: String?
     public let artistName: String?
     private let artworkURL100: URL?
@@ -15,6 +17,7 @@ public struct SearchResult: Decodable {
 
 extension SearchResult {
     private enum CodingKeys: String, CodingKey {
+        case id = "trackId"
         case trackName
         case artistName
         case artworkURL100 = "artworkUrl100"
@@ -34,3 +37,5 @@ extension SearchResult {
         return url
     }
 }
+
+extension SearchResult: Identifiable {}

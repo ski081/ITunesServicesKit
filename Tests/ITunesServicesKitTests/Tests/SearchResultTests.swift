@@ -17,6 +17,7 @@ final class SearchResultsTests: XCTestCase {
         let result = try XCTUnwrap(decoder.decode(SearchResult.self, from: data),
                                    "Search result should decode")
         XCTAssertEqual(result.artistName, "Lowe's Companies, Inc.", "Name should match")
+        XCTAssertEqual(result.id, 457954781, "id should match")
     }
 
     func testValidSearchResponseDecode() throws {
